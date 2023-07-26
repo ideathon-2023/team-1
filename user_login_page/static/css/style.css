@@ -1,0 +1,66 @@
+/* style.css */
+/* Define color themes using CSS variables */
+:root {
+    /* Orange theme */
+    --primary-color: #FFA500;
+    --secondary-color: #FFD700;
+    --text-color: #FFFFFF;
+  
+    /* Green theme */
+    --primary-color-green: #008000;
+    --secondary-color-green: #00FF00;
+    --text-color-green: #FFFFFF;
+  
+    /* White theme */
+    --primary-color-white: #FFFFFF;
+    --secondary-color-white: #F0F0F0;
+    --text-color-white: #000000;
+  }
+  
+  /* Apply orange theme as default */
+  body {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+  }
+  
+  /* Apply green theme on hover */
+  body:hover {
+    background-color: var(--primary-color-green);
+    color: var(--text-color-green);
+  }
+  
+  /* Style the form elements */
+  form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid var(--secondary-color);
+    border-radius: 8px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  input,
+  select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 4px;
+  }
+  
+  input[type="submit"] {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    cursor: pointer;
+  }
+  
+  /* Apply white theme to submit button on hover */
+  input[type="submit"]:hover {
+    background-color: var(--secondary-color-white);
+    color: var(--text-color-white);
+  }
+  

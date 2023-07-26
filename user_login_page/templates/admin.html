@@ -1,0 +1,63 @@
+<<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Interface</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Admin Interface</h1>
+
+  <!-- Container to display new user registrations -->
+  <div id="newRegistrationsContainer">
+    <h2>New User Registrations</h2>
+    <ul id="newRegistrationsList">
+      <!-- New user registrations will be added dynamically here -->
+    </ul>
+  </div>
+
+  <!-- Firebase Configuration -->
+  <script src="https://www.gstatic.com/firebasejs/9.0.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.1/firebase-firestore.js"></script>
+
+  <!-- Add your Firebase configuration and initialization here -->
+  <script>
+    // Your Firebase configuration here
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_AUTH_DOMAIN",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_STORAGE_BUCKET",
+      messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+      appId: "YOUR_APP_ID",
+      measurementId: "YOUR_MEASUREMENT_ID"
+    };
+    firebase.initializeApp(firebaseConfig);
+
+    // Function to fetch new user registrations from Firestore
+    function fetchNewRegistrations() {
+      const adminApprovalRef = firebase.firestore().collection("admin_approval");
+
+      // Real-time listener for new user registrations
+      adminApprovalRef.onSnapshot((querySnapshot) => {
+        const newRegistrationsList = document.getElementById("newRegistrationsList");
+        newRegistrationsList.innerHTML = ""; // Clear the list before adding new registrations
+
+        querySnapshot.forEach((doc) => {
+          const userData = doc.data();
+          // Create a list item to display user details
+          const listItem = document.createElement("li");
+          listItem.innerHTML = `<strong>Email:</strong> ${userData.email}, <strong>Role:</strong> ${userData.role}`;
+          newRegistrationsList.appendChild(listItem);
+        });
+      });
+    }
+
+    // Call the function to fetch new user registrations
+    fetchNewRegistrations();
+  </script>
+
+  <!-- Include admin.js file -->
+  <script src="admin.js"></script>
+</body>
+</html>
