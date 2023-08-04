@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Announcement Page</title>
+    <!-- Add your CSS stylesheets here -->
+    <link rel="stylesheet" type="text/css" href="announcement.css">
+</head>
+<body>
+    <h1>College Announcements</h1>
+    <!-- Filter Options -->
+    <div>
+        <label for="categoryFilter">Filter by Category:</label>
+        <select id="categoryFilter">
+            <option value="">All</option>
+            <option value="academic">Academic</option>
+            <option value="events">Events</option>
+            <option value="administrative">Administrative</option>
+        </select>
+    </div>
+
+    <!-- Search Bar -->
+    <div>
+        <label for="searchBar">Search:</label>
+        <input type="text" id="searchBar" placeholder="Search announcements...">
+        <button id="searchButton">Search</button>
+    </div>
+
+    <!-- Announcements Section -->
+    <div id="announcementsList">
+        <!-- Announcements will be displayed here dynamically -->
+        <div class="announcement">
+            <h2>Announcement Title</h2>
+            <p>Date: 2023-07-31</p>
+            <p>Category: Academic</p>
+            <p>Content: content of announcement.</p>
+            <p>Attachments: <a href="#">Attachment 1</a>, <a href="#">Attachment 2</a></p>
+            <p>Tagged Users: @john_doe, @jane_smith</p>
+        </div>
+    </div>
+
+    <!-- Announcement Creation Form (For authorized users) -->
+    <!-- Check if the user is authorized as the CR before displaying the form -->
+    <h2>Create Announcement</h2>
+    <form id="announcementForm">
+        <input type="text" id="announcementTitle" placeholder="Announcement Title" required>
+        <textarea id="announcementContent" placeholder="Enter your announcement content" required></textarea>
+        <input type="file" id="attachmentUpload" multiple>
+        <input type="text" id="tagUsers" placeholder="Tag users with '@' symbol">
+        <select id="announcementCategory" required>
+            <option value="" disabled selected>Select Category</option>
+            <option value="academic">Academic</option>
+            <option value="events">Events</option>
+            <option value="administrative">Administrative</option>
+        </select>
+        <input type="date" id="eventDate" placeholder="Select date for Google Calendar" required>
+        <button type="submit">Create Announcement</button>
+    </form>
+
+     <!-- Event Calendar Integration -->
+     <h2>Upcoming Events</h2>
+     <div id="eventCalendar">
+         <!-- Event calendar will be displayed here dynamically -->
+     </div>
+ 
+     <!-- Add your JavaScript code here -->
+     <script>
+         // JavaScript code to handle form submissions
+         document.getElementById("announcementForm").addEventListener("submit", function(event) {
+             event.preventDefault();
+             // Get form values and handle the form submission logic here
+             // Add code to send the form data to the server or store it in a database
+             // After successful submission, update the announcements list to display the new announcement
+         });
+ 
+         // JavaScript code to handle filtering
+         document.getElementById("categoryFilter").addEventListener("change", function(event) {
+             // Get the selected category from the filter dropdown
+             var selectedCategory = event.target.value;
+ 
+             // Implement filtering logic to display announcements based on the selected category
+             // You may need to hide/show announcements based on the category value
+         });
+ 
+         // JavaScript code to handle search
+         document.getElementById("searchButton").addEventListener("click", function() {
+             // Get the search keyword from the search bar
+             var searchKeyword = document.getElementById("searchBar").value;
+ 
+             // Implement search logic to display announcements containing the search keyword
+             // You may need to hide/show announcements based on the search keyword
+         });
+        // Assuming the user is the CR (Class Representative)
+        var isCR = true;
+
+        // Show or hide the "Create Announcement" form based on the user role
+        var createAnnouncementForm = document.getElementById("announcementForm");
+        if (!isCR) {
+            createAnnouncementForm.style.display = "none";
+        }
+
+    </script>
+
+    <!-- Add any additional HTML elements or scripts you need for your specific design -->
+</body>
+</html>
