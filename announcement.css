@@ -1,0 +1,112 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Header Styles */
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Filter Options Styles */
+  #categoryFilter {
+    margin-bottom: 10px;
+  }
+  
+  /* Search Bar Styles */
+  #searchBar {
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  #searchButton {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Announcements Section Styles */
+  #announcementsList {
+    margin-bottom: 20px;
+  }
+  
+  .announcement {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .announcement h2 {
+    margin-top: 0;
+    color: #4CAF50;
+  }
+  
+  .announcement p {
+    margin: 5px 0;
+  }
+  
+  .announcement a {
+    margin-right: 5px;
+  }
+  
+  
+  
+  #announcementForm input,
+  #announcementForm select,
+  #announcementForm textarea,
+  #announcementForm button {
+    margin-bottom: 10px;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  #announcementForm select {
+    appearance: none;
+    background-color: #fff;
+  }
+  
+  #announcementForm button {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  
+  /* Responsive Styles */
+  @media screen and (max-width: 600px) {
+    /* Adjust styles for smaller screens */
+    #categoryFilter,
+    #searchBar,
+    #announcementForm input,
+    #announcementForm select,
+    #announcementForm textarea,
+    #announcementForm button {
+      width: 100%;
+    }
+    
+    .announcement h2 {
+      font-size: 18px;
+    }
+  }
+   
